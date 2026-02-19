@@ -48,11 +48,32 @@ AROMI (Adaptive Responsive Optimized Medical Intelligence) is an AI-powered well
 
 ## 🖼️ Screenshots
 
-### Onboarding Screen
-![Onboarding](./docs/onboarding-screen.png)
+### 1. Medical Disclaimer
+![Disclaimer](./docs/disclaimer-screen.png)
 
-### Main Chat Interface
-![Chat Interface](./docs/main-interface.png)
+### 2. Onboarding - Step 1: Basic Info
+![Onboarding Step 1](./docs/onboarding-step1.png)
+
+### 3. Onboarding - Step 2: Fitness Goals
+![Onboarding Step 2](./docs/onboarding-step2.png)
+
+### 4. Onboarding - Step 3: Equipment & Injuries
+![Onboarding Step 3](./docs/onboarding-step3.png)
+
+### 5. Main Chat Interface with 3D Avatar
+![Main Chat](./docs/main-chat.png)
+
+### 6. Workout Plan Display
+![Workout Plan](./docs/workout-plan.png)
+
+### 7. Nutrition Plan Display
+![Nutrition Plan](./docs/nutrition-plan.png)
+
+### 8. Voice Input
+![Voice Input](./docs/voice-input.png)
+
+### 9. Profile Reset
+![Profile Reset](./docs/profile-reset.png)
 
 ---
 
