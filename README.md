@@ -341,6 +341,6 @@ This project is licensed under the MIT License.
 
 <div align="center">
 
-**Built with ❤️ for the ArogyaMitra Hackathon**
+**Built with ❤️ for the Gen AI Forge 2026 Hackathon**
 
 </div>
