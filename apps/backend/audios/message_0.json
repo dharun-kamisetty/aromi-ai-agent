@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "soundFile": "message_0.wav",
+    "duration": 3
+  },
+  "mouthCues": [
+    {
+      "value": "O",
+      "start": 0,
+      "end": 0.5
+    },
+    {
+      "value": "E",
+      "start": 0.5,
+      "end": 1
+    },
+    {
+      "value": "A",
+      "start": 1,
+      "end": 1.5
+    },
+    {
+      "value": "F",
+      "start": 1.5,
+      "end": 2
+    },
+    {
+      "value": "B",
+      "start": 2,
+      "end": 2.5
+    },
+    {
+      "value": "M",
+      "start": 2.5,
+      "end": 3
+    }
+  ]
+}
