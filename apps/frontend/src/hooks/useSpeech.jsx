@@ -10,6 +10,8 @@ export const SpeechProvider = ({ children }) => {
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState();
   const [loading, setLoading] = useState(false);
+  const [userContext, setUserContext] = useState(null);
+  const [aromaData, setAromaData] = useState(null);
 
   let chunks = [];
 
@@ -30,13 +32,12 @@ export const SpeechProvider = ({ children }) => {
       try {
         const data = await fetch(`${backendUrl}/sts`, {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ audio: base64Audio }),
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ audio: base64Audio, userContext }),
         });
-        const response = (await data.json()).messages;
-        setMessages((messages) => [...messages, ...response]);
+        const result = await data.json();
+        setMessages((messages) => [...messages, ...result.messages]);
+        setAromaData(result.aroma);
       } catch (error) {
         console.error(error);
       } finally {
@@ -59,7 +60,6 @@ export const SpeechProvider = ({ children }) => {
               await sendAudioData(audioBlob);
             } catch (error) {
               console.error(error);
-              alert(error.message);
             }
           };
           setMediaRecorder(newMediaRecorder);
@@ -82,18 +82,17 @@ export const SpeechProvider = ({ children }) => {
     }
   };
 
-  const tts = async (message) => {
+  const tts = async (messageText) => {
     setLoading(true);
     try {
       const data = await fetch(`${backendUrl}/tts`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ message }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: messageText, userContext }),
       });
-      const response = (await data.json()).messages;
-      setMessages((messages) => [...messages, ...response]);
+      const result = await data.json();
+      setMessages((messages) => [...messages, ...result.messages]);
+      setAromaData(result.aroma);
     } catch (error) {
       console.error(error);
     } finally {
@@ -116,13 +115,8 @@ export const SpeechProvider = ({ children }) => {
   return (
     <SpeechContext.Provider
       value={{
-        startRecording,
-        stopRecording,
-        recording,
-        tts,
-        message,
-        onMessagePlayed,
-        loading,
+        startRecording, stopRecording, recording, tts, message, onMessagePlayed, loading,
+        userContext, setUserContext, aromaData
       }}
     >
       {children}
